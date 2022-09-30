@@ -9,9 +9,25 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/server": "^11.10.0",
+    "@emotion/styled": "^11.10.4",
+    "@mantine/carousel": "^5.4.2",
+    "@mantine/core": "^5.4.0",
+    "@mantine/hooks": "^5.4.0",
+    "@mantine/next": "^5.4.0",
+    "@tabler/icons": "^1.97.0",
+    "axios": "^0.27.2",
+    "embla-carousel-autoplay": "^7.0.3",
+    "embla-carousel-react": "^7.0.3",
     "next": "12.3.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-icons": "^4.4.0",
+    "react-tooltip": "^4.2.21",
+    "sharp": "^0.31.0",
+    "tabler-icons-react": "^1.55.0",
+    "zustand": "^4.1.1"
   },
   "devDependencies": {
     "eslint": "8.23.1",
