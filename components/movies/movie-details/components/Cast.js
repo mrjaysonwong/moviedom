@@ -2,7 +2,8 @@ import styled from '@emotion/styled';
 import { IMAGES_API_w500, IMAGES_API_original } from '@utils/apis/config';
 import { devices } from '@utils/devices/devices';
 import Link from 'next/link';
-import slugify from 'slugify';
+
+const slugify = require('slugify');
 
 const MovieCastWrapper = styled.div`
   padding: 1.5rem 0;
@@ -107,7 +108,7 @@ const Cast = ({ cast, type }) => {
           <CastWrapper>{cardElements}</CastWrapper>
         ) : (
           <p>
-            We don't have any cast added to this{' '}
+            We don&apos;t have any cast added to this{' '}
             {type === 'movie' ? 'movie' : 'show'}.
           </p>
         )}

@@ -105,7 +105,7 @@ const Credits = ({ credits }) => {
         {credits.length > 0 ? (
           <ActingBackgroundWrapper>{cardElements}</ActingBackgroundWrapper>
         ) : (
-          <p>We don't have any credits added.</p>
+          <p>We don&apos;t have any credits added.</p>
         )}
       </CreditsWrapper>
     </>
