@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { socials } from '@utils/socials/social-media';
 import useNavstore from '@stores/navbar-store';
 import Image from 'next/image';
-import myLogo from '@public/mylogo.png';
 import { devices } from '@utils/devices/devices';
 
 const FooterWrapper = styled.div`
@@ -151,7 +150,7 @@ const Footer = () => {
                 rel="noreferrer"
               >
                 <Image
-                  src='/mylogo.png'
+                  src="/mylogo.png"
                   alt="Jayson Wong logo"
                   width="240px"
                   height="60px"

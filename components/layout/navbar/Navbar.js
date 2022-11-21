@@ -8,7 +8,6 @@ import { routes } from '@utils/routes/routes';
 import { devices } from '@utils/devices/devices';
 import useClickOutside from '@utils/hooks/useClickOutside';
 import { Tooltip } from '@mantine/core';
-import appLogo from '@public/logo.png';
 import Search from './Search';
 
 const NavbarWrapper = styled.nav`
