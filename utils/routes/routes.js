@@ -13,7 +13,7 @@ export const routes = [
   },
   {
     title: 'TV Shows',
-    path: '/tv-shows',
+    path: '/tv',
     ioutline: <RiIcons.RiMovieLine />,
     ifill: <RiIcons.RiMovieFill />,
   },
@@ -33,15 +33,15 @@ export const routes = [
     subNav: [
       {
         title: 'Popular',
-        path: '/popular',
+        path: '/movie/popular',
       },
       {
         title: 'Top Rated',
-        path: '/top-rated',
+        path: '/movie/top-rated',
       },
       {
         title: 'Upcoming',
-        path: '/upcoming',
+        path: '/movie/upcoming',
       },
     ],
   },

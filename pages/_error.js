@@ -1,8 +1,10 @@
-import Link from 'next/link';
+import { useEffect } from 'react';
+import Head from 'next/head';
 import styled from '@emotion/styled';
 import useNavstore from '@stores/navbar-store';
-import Image from 'next/image';
-import stickerError from '../public/stickerError2.png';
+import { Title, Text, Button, Container, Group } from '@mantine/core';
+import { useStyles } from '@utils/hooks/errorPages';
+import Link from 'next/link';
 
 const ServerErrorWrapper = styled.div`
   display: flex;
@@ -12,57 +14,77 @@ const ServerErrorWrapper = styled.div`
   text-align: center;
   padding: 1rem;
   min-height: 100vh;
+`;
 
-  a {
-    color: var(--gold);
-  }
-
-  .status-wrapper {
-    display: flex;
-    align-items: center;
-  }
-
-  .try-again {
-    padding: 0.5rem;
-    margin: 0.5rem 0;
-    background: var(--gold);
-    color: #000;
-    cursor: pointer;
-    border: none;
+const Label = styled.div`
+  .label-one {
+    color: dimgray;
   }
 `;
 
 function Error({ statusCode }) {
   const handleClick = useNavstore((state) => state.handleClick);
-  useNavstore.setState({ pageactive: [] });
+
+  const { classes } = useStyles();
+
+  useEffect(() => {
+    useNavstore.setState({ routepath: [] });
+  }, []);
 
   function refreshPage() {
     window.location.reload(false);
   }
   return (
     <>
+      <Head>
+        <title>{`${statusCode} Error - MovieDom`}</title>
+      </Head>
+
       <ServerErrorWrapper>
-        <Image
-          src={stickerError}
-          alt="Sticker Error"
-          width="256px"
-          height="256px"
-          quality={100}
-          loading="lazy"
-        />
-        <div className="status-wrapper">
-          {statusCode && <h1>Error: {statusCode}</h1>}
-        </div>
-        <p>We are sorry! There was an error</p>
-        <button className="try-again button" onClick={() => refreshPage(true)}>
-          Try again?
-        </button>
-        <p>
-          Go to the{' '}
-          <Link href="/" passHref>
-            <a onClick={() => handleClick('/')}>Homepage</a>
-          </Link>
-        </p>
+        <Container className={classes.root}>
+          <Label>
+            <div className={`${classes.label} label-one`}>{statusCode}</div>
+          </Label>
+          <Label>
+            <Title className={classes.title}>
+              <div className="label-two">
+                {statusCode === 404 ? 'Page Not Found.' : 'Server Error'}
+              </div>
+            </Title>
+          </Label>
+
+          <Text
+            color="dimmed"
+            size="lg"
+            align="center"
+            className={classes.description}
+          >
+            {statusCode === 404
+              ? 'Page you are trying to open does not exist. You may have mistyped the address, or the page has been moved to another URL.'
+              : `Our servers could not handle your request. Don't worry, our
+            development team was already notified. Try refreshing the page.`}
+          </Text>
+          {statusCode !== 404 && (
+            <Group position="center">
+              <Button
+                variant="subtle"
+                size="md"
+                onClick={() => refreshPage(true)}
+              >
+                Refresh the page
+              </Button>
+            </Group>
+          )}
+          <Group position="center">
+            <Link href="/" passHref>
+              <a onClick={() => handleClick('/')}>
+                <Button variant="subtle" size="md">
+                  Take me back to home
+                </Button>
+              </a>
+            </Link>
+          </Group>
+        </Container>
       </ServerErrorWrapper>
     </>
   );

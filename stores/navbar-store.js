@@ -4,11 +4,11 @@ import { devtools, persist } from 'zustand/middleware';
 const navStore = (set) => ({
   sidebar: false,
   subnav: false,
-  pageactive: [],
+  routepath: [],
   toggleSidebar: () => set((state) => ({ sidebar: !state.sidebar })),
   showSubnav: () => set((state) => ({ subnav: !state.subnav })),
   handleClick: (path) =>
-    set(() => ({ sidebar: false, subnav: false, pageactive: path })),
+    set(() => ({ sidebar: false, subnav: false, routepath: path })),
 });
 
 const useNavstore = create(
@@ -16,7 +16,7 @@ const useNavstore = create(
     persist(navStore, {
       name: 'ACTIVE_PATH',
       getStorage: () => sessionStorage,
-      partialize: (state) => ({ pageactive: state.pageactive }),
+      partialize: (state) => ({ routepath: state.routepath }),
     })
   )
 );

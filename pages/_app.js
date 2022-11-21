@@ -2,25 +2,27 @@ import Head from 'next/head';
 import { MantineProvider } from '@mantine/core';
 import '@styles/globals.css';
 import Layout from '../components/layout/Layout';
-import Error from 'next/error';
 
 function MyApp({ Component, pageProps }) {
-  if (pageProps.error) {
-    return (
-      <Error
-        statusCode={pageProps.error.statusCode}
-        title={pageProps.error.message}
-      />
-    );
-  }
   return (
     <>
       <Head>
-        <title>Page title</title>
+        <title>MovieDom</title>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
+        <meta name="author" content="Mr. Jayson Wong" />
+        <meta
+          name="description"
+          content="A Project of Mr. Jayson Wong a simple Movie Search App."
+        />
+        <meta property="og:title" content="MovieDom" />
+        <meta
+          property="og:description"
+          content="A Project of Jayson Wong a simple Movie Search App."
+        />
+        <meta property="og:url" content="https://moviedom.vercel.app/" />
         <link rel="icon" href="/images/moviedom.png" />
       </Head>
 

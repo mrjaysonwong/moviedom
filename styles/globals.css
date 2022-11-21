@@ -1,19 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
 
 :root {
   --dark-gray: #161d21;
-  --dark-blue: #041935;
+  --dark-blue: rgba(4, 25, 53, 0.8);
   --gold: #ffd34e;
   --hover-gray: rgba(69, 69, 69, 0.2);
-  --overlay-opacity: rgba(0, 0, 0, 0.5);
+  --hover-secondary: rgba(112, 112, 112, 0.5);
+  --overlay-opacity: rgba(24, 21, 26, 0.6);
+  --overlay-opacity-secondary: rgba(22, 29, 33, 0.8);
+  --overlay-carousel: rgba(24, 21, 26, 0.6);
   --primary-color: #62b4ff;
   --primary-color-sharp: #0681ff;
   --background-primary: #161d21;
   --background-secondary: #0d1114;
   --dropdown-primary: #2b2f42;
   --dropdown-hover: rgba(22, 29, 33, 0.467);
-  --background-opacity: rgba(0, 0, 0, 0);
+  --background-opacity: rgba(49, 49, 49, 0);
+  --background-opacity-secondary: rgba(0, 0, 0, 0.3);
+  --card-shadow: 0px 0px 5px 2px rgba(26, 44, 42, 0.9);
   --linear: linear-gradient(to right, darkblue, darkorchid) 1;
+  --imageBorderRadius: 8px;
+  --borderRadius: 8px;
+  --buttonBorderRadius: 5px;
 }
 
 *,
@@ -22,18 +30,45 @@
   box-sizing: border-box;
 }
 
-
 *,
 body,
 html {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins';
-  overflow-x: clip;
+  font-family: 'Poppins', Arial;
+  scroll-behavior: smooth;
 }
 
 ul,
+ol,
 a {
   list-style: none;
   text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: gray;
+  scroll-behavior: smooth;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 2px rgb(255, 255, 255);
+  border-radius: 20px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 20px;
 }

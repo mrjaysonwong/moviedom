@@ -1,7 +1,7 @@
-import ContentContainer from './ContentContainer';
-import Navbar from '@components/navbar/Navbar';
-import Footer from '@components/footer/Footer';
 import styled from '@emotion/styled';
+import MainContainer from '@components/layout/MainContainer';
+import Navbar from '@components/layout/navbar/Navbar';
+import Footer from '@components/layout/footer/Footer';
 import { devices } from '@utils/devices/devices';
 import useNavstore from '@stores/navbar-store';
 
@@ -12,7 +12,7 @@ const Overlay = styled.div`
   width: 100%;
   height: 100%;
   display: ${({ sidebar }) => (!sidebar ? 'none' : 'block')};
-  z-index: 1;
+  z-index: 19;
 
   @media ${devices.laptopMaxWidth} {
     background: var(--overlay-opacity);
@@ -24,12 +24,10 @@ const Layout = ({ children }) => {
   const sidebar = useNavstore((state) => state.sidebar);
   return (
     <>
-
-        <Navbar />
-        <Overlay sidebar={sidebar}></Overlay>
-        <ContentContainer>{children}</ContentContainer>
-        <Footer />
-     
+      <Navbar />
+      <Overlay sidebar={sidebar}></Overlay>
+      <MainContainer>{children}</MainContainer>
+      <Footer />
     </>
   );
 };

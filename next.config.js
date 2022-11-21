@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   swcMinify: true,
   compiler: {
     emotion: true,
@@ -16,6 +16,9 @@ const nextConfig = {
     // Will be available on both server and client
     apiKey: process.env.API_KEY,
   },
+  images: {
+    domains: ['images.tmdb.org']
+  }
 };
 
 module.exports = nextConfig;
