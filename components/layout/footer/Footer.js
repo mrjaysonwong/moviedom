@@ -151,7 +151,7 @@ const Footer = () => {
                 rel="noreferrer"
               >
                 <Image
-                  src={myLogo}
+                  src='/mylogo.png'
                   alt="Jayson Wong logo"
                   width="240px"
                   height="60px"

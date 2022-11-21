@@ -350,7 +350,7 @@ const Navbar = () => {
             <Tooltip label="MovieDom Home" withArrow color="dark">
               <NavbarLogo>
                 <Image
-                  src={appLogo}
+                  src='/moviedom_logo.png'
                   alt="MovieDom logo"
                   width="190px"
                   height="33px"
